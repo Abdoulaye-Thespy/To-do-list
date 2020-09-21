@@ -1,0 +1,43 @@
+.bod {
+        background-image:  url("./images/1.jpg");
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed;
+    background-position: center; /* Center the image */
+    background-size: cover;
+    width: 95%;
+  width: 60%;
+  margin: auto;
+  background-color: #cccccc;
+  
+}
+
+.nav {
+
+}
+
+footer {
+    border-radius: 0.3rem; 
+}
+
+.projects {
+    height: 80vh;
+    border: 1px solid #330010;
+    border-radius: 2rem;
+    padding: 2rem;
+    text-align: center;
+
+}
+
+.to_do {
+    border: 1px solid #330010;
+    border-radius: 2rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.content {
+    background-color: #b3b3b3;
+    border-radius: 1rem;
+    margin: 2rem;
+    padding: 2rem;
+}
