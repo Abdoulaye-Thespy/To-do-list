@@ -1,3 +1,5 @@
+import {Task} from './task';
+
 export let task = [{
     title : "Razak",
     description: "newttask",
@@ -33,27 +35,19 @@ export let task = [{
  let cont=document.getElementById('conten');
  const createButton = document.getElementById('create');
  
- const Task = (title,description, dueDate, priority) => {
-    const getTittle = () => title;
-    const getDesciption = () => description;
-    const getdueDate = () => dueDate;
-    const getPriority = () => priority;
-    
-    return {getTittle, getDesciption, getdueDate, getPriority}
-     
- }
  
  createButton.onclick = function create () {
   const title = document.getElementById('orangeForm-title').value;
   const description = document.getElementById('orangeForm-description').value;
   const dueDate = document.getElementById('orangeForm-date').value;
   const priority = document.getElementById('orangeForm-priority').value;
-  const newTask = Task(title, description, dueDate, priority);
+  const newTask = new Task(title, description, dueDate, priority);
+  console.log(newTask);
   task.push(newTask);
-     console.log(newTask.getTittle)
+  renderPage();
  }
 
-function render(title, description, dueDate, priority) {
+function addTask(title, description, dueDate, priority) {
   const box = document.createElement('div');
   box.className = 'col-md-3 task';
   cont.appendChild(box);
@@ -84,17 +78,15 @@ function render(title, description, dueDate, priority) {
   readOrNot.appendChild(document.createTextNode('VIEW/EDIT'));
   cardBody.appendChild(readOrNot);
 }
-let title="abdoulaye";
-let description="razak";
-let dueDate=11;
-let priority="read";
 
-for (let i = 0; i <task.length; i++) {
+const rendertask =() => {
+  for (let i = 0; i <task.length; i++) {
   const { title } = task[i];
   const { description } = task[i];
   const { dueDate } = task[i];
-  const { priory } = task[i];
-  render(title, description, dueDate, priority);
+  const { priority } = task[i];
+  addTask(title, description, dueDate, priority);
+}
 }
 
 // render(title, description, dueDate, priority);
