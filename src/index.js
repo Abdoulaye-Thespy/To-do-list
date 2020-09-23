@@ -1,40 +1,8 @@
 import {Task} from './task';
 
-export let task = [{
-    title : "Razak",
-    description: "newttask",
-    dueDate: "12/12/12",
-    priority: "medium"
-},
-{
-    title : "Razak",
-    description: "newttask",
-    dueDate: "12/12/12",
-    priority: "medium"
-},
-{
-    title : "Razak",
-    description: "newttask",
-    dueDate: "12/12/12",
-    priority: "medium"
-},
-{
-    title : "Razak",
-    description: "newttask",
-    dueDate: "12/12/12",
-    priority: "medium"
-},
-{
-    title : "Razak",
-    description: "newttask",
-    dueDate: "12/12/12",
-    priority: "medium"
-},
-
-]
- let cont=document.getElementById('conten');
+export let task = [];
+ let cont =document.getElementById('conten');
  const createButton = document.getElementById('create');
- 
  
  createButton.onclick = function create () {
   const title = document.getElementById('orangeForm-title').value;
@@ -43,17 +11,22 @@ export let task = [{
   const priority = document.getElementById('orangeForm-priority').value;
   const newTask = new Task(title, description, dueDate, priority);
   console.log(newTask);
+  console.log(task);
   task.push(newTask);
-  renderPage();
+  addTask(title, description, dueDate, priority);
  }
 
 function addTask(title, description, dueDate, priority) {
   const box = document.createElement('div');
-  box.className = 'col-md-3 task';
+  box.className = 'col-3 task';
   cont.appendChild(box);
   const card = document.createElement('div');
   card.className = 'card';
   box.appendChild(card);
+  const del = document.createElement('a');
+  del.className = 'btn bbd';
+  del.appendChild(document.createTextNode('X'));
+  card.appendChild(del);
   const cardBody = document.createElement('div');
   cardBody.className = 'card-body';
   card.appendChild(cardBody);
@@ -69,14 +42,6 @@ function addTask(title, description, dueDate, priority) {
   numPage.className = 'card-title';
   numPage.appendChild(document.createTextNode(` PRIORITY: ${priority}`));
   cardBody.appendChild(numPage);
-  const del = document.createElement('a');
-  del.className = 'btn btn-danger bbd';
-  del.appendChild(document.createTextNode('DELETE'));
-  cardBody.appendChild(del);
-  const readOrNot = document.createElement('a');
-  readOrNot.className = 'btn btn-info';
-  readOrNot.appendChild(document.createTextNode('VIEW/EDIT'));
-  cardBody.appendChild(readOrNot);
 }
 
 const rendertask =() => {
@@ -88,6 +53,8 @@ const rendertask =() => {
   addTask(title, description, dueDate, priority);
 }
 }
+
+ rendertask();
 
 // render(title, description, dueDate, priority);
 // render(title, description, dueDate, priority);

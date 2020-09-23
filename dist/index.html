@@ -27,6 +27,34 @@
 <div class="content row" id="content">
     
  <div class="col-sm-4 projects">
+   <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="text" id="defaultForm-email" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="defaultForm-email">PROJECT NAME</label>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-default">CREATE</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn btn-info btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">CREATE NEW PROJECT</a>
+</div>
      
      <h1 class="proj">PROJECTS(1)</h1>
       <h4 class="proj">DEFAULT PROJECT</h4>
@@ -84,7 +112,11 @@
            CREATE NEW TASK</a>
         </div>
            <h1>TASKS</h1>
-        <div id="conten" class="row"></div>
+           <hr>
+        <div id="conten" class="row">
+          
+          <p class="wclm">Welcome to our PM APP, here you can manage your differents task based on their priority</p>
+        </div>
 
 
  </div>
