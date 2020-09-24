@@ -14,10 +14,20 @@ export let project = [{
  
  pcont.onclick  = function openTask(e) {
      if (e.target.className === 'proj'){
-             cont.innerHTML='';
+         const element = e.target;
+        const ind=index(element);
+         console.log(ind);
+         console.log(task);
+         task = project[ind].task;
+         console.log(task);
+         rendertask();
      }
      
  };
+ 
+function index(el) {
+  return [...el.parentElement.children].indexOf(el)-1;
+}
  
  createButton.onclick = function create () {
   const title = document.getElementById('orangeForm-title').value;
