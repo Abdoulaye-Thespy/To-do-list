@@ -1,4 +1,4 @@
- export let cont =document.getElementById('conten');
+export let cont =document.getElementById('conten');
 export function addTask(title, description, dueDate, priority) {
   const box = document.createElement('div');
   box.className = 'col-3 task';
