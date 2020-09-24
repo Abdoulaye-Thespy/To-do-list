@@ -1,16 +1,23 @@
 import {Task} from './task';
 import {Project} from './project';
 import {cont, addTask} from './addtask';
-import {pcon, addProject} from './addproject';
+import {pcont, addProject} from './addproject';
 
 export let task = [];
 export let project = [{
-    name: "DEFAULT",
+    name: "DEFAULT PROJECT",
     task: task=[]
 }
 ];
  const createButton = document.getElementById('create');
  const pcreateButton = document.getElementById('pcreate');
+ 
+ pcont.onclick  = function openTask(e) {
+     if (e.target.className === 'proj'){
+             cont.innerHTML='';
+     }
+     
+ };
  
  createButton.onclick = function create () {
   const title = document.getElementById('orangeForm-title').value;
@@ -30,7 +37,6 @@ export let project = [{
  
  }
 const renderproject =() => {
-    cont.innerHTML='';
   for (let i = 0; i <project.length; i++) {
   const { name } = project[i];
   addProject(name);
@@ -47,8 +53,7 @@ const rendertask =() => {
   addTask(title, description, dueDate, priority);
 }
 }
-    
-       renderproject();
+renderproject();
 // render(title, description, dueDate, priority);
 // render(title, description, dueDate, priority);
 // render(title, description, dueDate, priority);
