@@ -18,7 +18,6 @@ const projDisplayed = () => {
 
  const createButton = document.getElementById('create');
  const pcreateButton = document.getElementById('pcreate');
- const boxtask = document.getElementsByClassName('task');
  
  const rendertask =() => {
     cont.innerHTML='';
@@ -73,6 +72,14 @@ const renderproject =() => {
 renderproject();
 projDisplayed();
 
-boxtask.onclick =function deleteTask () {
- console.log('delete');
+cont.onclick = function deleteTask (e) {
+ if (e.target.className ==='btn bbd')
+ {
+  if (confirm('delete'))
+  {
+  const element = e.target.parentElement.parentElement;
+  cont.removeChild(element);
+ console.log(element);
+  }
+ }
 }
