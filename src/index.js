@@ -9,6 +9,9 @@ export let project = [{
 }
 ];
 
+let savedProject = fetch();
+project.concat(savedProject);
+
 let projectDisplayed = project[0].name;
 
 
@@ -54,6 +57,7 @@ function index(el) {
   const newTask = new Task(title, description, dueDate, priority);
   task.push(newTask);
   addTask(title, description, dueDate, priority);
+  save();
  }
  
   pcreateButton.onclick = function Pcreate () {
@@ -61,6 +65,7 @@ function index(el) {
   const newProject = new Project(name);
   project.push(newProject);
   addProject(name);
+  save();
  
  }
 const renderproject =() => {
@@ -82,4 +87,18 @@ cont.onclick = function deleteTask (e) {
  console.log(element);
   }
  }
+}
+
+function save() {
+  const JSONReadymyproject = JSON.stringify(project);
+  (localStorage.setItem('projects', JSONReadymyproject));
+}
+
+function fetch() {
+  if (localStorage.getItem('projects') == null) {
+    localStorage.setItem('projects', JSON.stringify([]));
+    return JSON.parse(localStorage.projects);
+  }
+
+  return JSON.parse(localStorage.projects);
 }
