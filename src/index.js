@@ -20,7 +20,7 @@ function save() {
 }
 
 function fetch() {
-  if (localStorage.getItem('projects') == null) {
+  if (localStorage.getItem('projects') === null) {
     localStorage.setItem('projects', JSON.stringify([]));
     return JSON.parse(localStorage.projects);
   }
@@ -28,8 +28,11 @@ function fetch() {
   return JSON.parse(localStorage.projects);
 }
 
-const savedProject = fetch();
-project = savedProject;
+ const savedProject = fetch();
+ if (savedProject.length > 0)
+ {
+  project = savedProject;
+ }
 let projectDisplayed = project[0].name;
 task = projectDisplayed;
 
