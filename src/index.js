@@ -17,6 +17,7 @@ console.log(savedProject);
 console.log(project);
 
 let projectDisplayed = project[0].name;
+task = projectDisplayed;
 
 
 const projDisplayed = () => {
