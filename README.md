@@ -13,11 +13,11 @@
 ## Screenshots
 
 # Welcome page
-![screenshot](./img/2.jpng)
+![screenshot](2.png)
 # Create Task modal
-![screenshot](./img/3.jpng)
+![screenshot](3.png)
 # Create project modal
-![screenshot](./img/4.jpng)
+![screenshot](4.png)
 ## Built with
 
 - HTML5
