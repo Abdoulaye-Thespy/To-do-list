@@ -10,7 +10,11 @@ export let project = [{
 ];
 
 let savedProject = fetch();
-project.concat(savedProject);
+console.log(project);
+project = savedProject;
+
+console.log(savedProject);
+console.log(project);
 
 let projectDisplayed = project[0].name;
 
