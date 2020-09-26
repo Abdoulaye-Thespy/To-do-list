@@ -35,8 +35,7 @@ function fetch() {
   project = savedProject;
  }
 let projectDisplayed = project[0];
-task = projectDisplayed;
-
+task = projectDisplayed.task;
 
 const projDisplayed = () => {
   document.getElementById('displayedProject').innerHTML = projectDisplayed.name.toUpperCase();
@@ -96,6 +95,7 @@ const renderproject = () => {
 
 renderproject();
 projDisplayed();
+rendertask();
 
 cont.onclick = function deleteTask(e) {
   if (e.target.className === 'btn bbd') {
@@ -108,18 +108,4 @@ cont.onclick = function deleteTask(e) {
      save();
     }
   }
-};
-
-cont.onclick = function viewEdit(e) {
-  // if (e.target.className === 'btn bbd') {
-  // const element = e.target.parentElement.parentElement;
-  // let ind = index(element);
-  // ind = ind + 1
-  //   if (confirm('delete')) {
-  //     cont.removeChild(element);
-  //     task.splice(ind, 1);
-  //    save();
-  //   }
-  // }
-  console.log('oaoaoao');
 };

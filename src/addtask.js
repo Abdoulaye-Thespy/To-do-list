@@ -1,5 +1,5 @@
 export const cont = document.getElementById('conten');
-export function addTask(title, description, dueDate, priority) {
+export const addTask = (title, description, dueDate, priority) => {
   const box = document.createElement('div');
   box.className = 'col-3 task';
   cont.appendChild(box);
@@ -31,9 +31,15 @@ export function addTask(title, description, dueDate, priority) {
   cardBody.appendChild(taskDue);
 
 
-
   const numPage = document.createElement('h4');
   numPage.className = 'card-title';
   numPage.appendChild(document.createTextNode(` PRIORITY: ${priority}`));
   cardBody.appendChild(numPage);
+  const editBtn = document.createElement('div');
+  cardBody.appendChild(editBtn);
+  editBtn.className= 'editBtn';
+  editBtn.innerHTML= `        <div class="text-center">
+          <a href="" class="btn btn-default btn-rounded btn-info mb-4" data-toggle="modal" data-target="#modalRegisterForm">
+        EDIT</a>
+        </div>`
 }
