@@ -57,9 +57,7 @@ const rendertask = () => {
 };
 
 pcont.onclick = function openTask(e) {
-  console.log(e.target);
   if (e.target.className === 'proj') {
-    console.log(e.target);
     const element = e.target;
     const ind = index(element);
     task = project[ind].task;
@@ -100,7 +98,6 @@ renderproject();
 projDisplayed();
 
 cont.onclick = function deleteTask(e) {
-  console.log(e.target);
   if (e.target.className === 'btn bbd') {
   const element = e.target.parentElement.parentElement;
   let ind = index(element);
@@ -111,4 +108,18 @@ cont.onclick = function deleteTask(e) {
      save();
     }
   }
+};
+
+cont.onclick = function viewEdit(e) {
+  // if (e.target.className === 'btn bbd') {
+  // const element = e.target.parentElement.parentElement;
+  // let ind = index(element);
+  // ind = ind + 1
+  //   if (confirm('delete')) {
+  //     cont.removeChild(element);
+  //     task.splice(ind, 1);
+  //    save();
+  //   }
+  // }
+  console.log('oaoaoao');
 };

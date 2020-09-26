@@ -13,14 +13,25 @@ export function addTask(title, description, dueDate, priority) {
   const cardBody = document.createElement('div');
   cardBody.className = 'card-body';
   card.appendChild(cardBody);
-  const cardTitle = document.createElement('h3');
+  const cardTitle = document.createElement('h4');
   cardTitle.className = 'card-title';
-  cardTitle.appendChild(document.createTextNode(title));
+  cardTitle.appendChild(document.createTextNode(`TASK TITLE: ${title}`));
   cardBody.appendChild(cardTitle);
-  const bookDescription = document.createElement('p');
-  bookDescription.className = 'card-text';
-  bookDescription.appendChild(document.createTextNode(`DUE DATE: ${dueDate}`));
-  cardBody.appendChild(bookDescription);
+
+  const taskDescription = document.createElement('p');
+   taskDescription.className = 'card-text des';
+   taskDescription.appendChild(document.createTextNode(`DESCRIPTION: ${description}`));
+   cardBody.appendChild(taskDescription);
+
+
+
+  const taskDue = document.createElement('p');
+  taskDue.className = 'card-text';
+  taskDue.appendChild(document.createTextNode(`DUE DATE: ${dueDate}`));
+  cardBody.appendChild(taskDue);
+
+
+
   const numPage = document.createElement('h4');
   numPage.className = 'card-title';
   numPage.appendChild(document.createTextNode(` PRIORITY: ${priority}`));
