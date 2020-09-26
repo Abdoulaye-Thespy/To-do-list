@@ -48,7 +48,7 @@ footer {
 }
 
 .task:hover {
-  height: 15rem;
+  height: 18rem;
 }
 .proj {
   border: 1px solid #a6a6a6;
@@ -79,6 +79,16 @@ footer {
 .des {
   display: none;
 }
+
 .task:hover .des {
+  display: block;
+}
+.editBtn {
+  display:none;
+  float: right;
+  margin-right: 10px;
+}
+
+.task:hover .editBtn {
   display: block;
 }
