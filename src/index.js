@@ -1,18 +1,22 @@
 import { Task } from './task';
-import { editTask } from './edit';
+import { editTask, test } from './edit';
 import { Project } from './project';
 import { cont, addTask } from './addtask';
 import { pcont, addProject } from './addproject';
 
 export let task = [];
-let project = [{
+export let project = [{
   name: 'DEFAULT',
   task: task = [],
 },
 ];
 
+let indexe=null;
 
 const econt = document.getElementById('content');
+const createButton = document.getElementById('create');
+const pcreateButton = document.getElementById('pcreate');
+
 function index(el) {
   return [...el.parentElement.children].indexOf(el) - 1;
 }
@@ -35,8 +39,6 @@ const projDisplayed = () => {
   document.getElementById('displayedProject').innerHTML = projectDisplayed.name.toUpperCase();
 };
 
-const createButton = document.getElementById('create');
-const pcreateButton = document.getElementById('pcreate');
 
 const rendertask = () => {
   cont.innerHTML = '';
@@ -61,14 +63,23 @@ pcont.onclick = function openTask(e) {
 };
 
 
-createButton.onclick = function create() {
+createButton.onclick = function create(e) {
   const title = document.getElementById('orangeForm-title').value;
   const description = document.getElementById('orangeForm-description').value;
   const dueDate = document.getElementById('orangeForm-date').value;
   const priority = document.getElementById('orangeForm-priority').value;
   const newTask = new Task(title, description, dueDate, priority);
-  task.push(newTask);
-  addTask(title, description, dueDate, priority);
+  console.log(e.target);
+  console.log('razak');
+  if (e.target.classList.contains("edit"))
+  {
+    console.log('edit');
+  }
+  else {
+      task.push(newTask);
+      addTask(title, description, dueDate, priority);
+  }
+
   save();
 };
 
@@ -100,6 +111,7 @@ econt.onclick = function EditTask(e) {
   let ind = index(element);
   console.log(element);
   ind = ind + 1
+  indexe=ind;
   editTask(ind);
   //   if (confirm('delete')) {
   //     cont.removeChild(element);
