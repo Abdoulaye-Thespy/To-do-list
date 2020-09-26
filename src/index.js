@@ -1,15 +1,18 @@
 import { Task } from './task';
+import { editTask } from './edit';
 import { Project } from './project';
 import { cont, addTask } from './addtask';
 import { pcont, addProject } from './addproject';
 
-let task = [];
+export let task = [];
 let project = [{
   name: 'DEFAULT',
   task: task = [],
 },
 ];
 
+
+const econt = document.getElementById('content');
 function index(el) {
   return [...el.parentElement.children].indexOf(el) - 1;
 }
@@ -27,15 +30,6 @@ function fetch() {
 
   return JSON.parse(localStorage.projects);
 }
-
- const savedProject = fetch();
-
- if (savedProject.length > 0)
- {
-  project = savedProject;
- }
-let projectDisplayed = project[0];
-task = projectDisplayed.task;
 
 const projDisplayed = () => {
   document.getElementById('displayedProject').innerHTML = projectDisplayed.name.toUpperCase();
@@ -86,16 +80,6 @@ pcreateButton.onclick = function Pcreate() {
   save();
 };
 
-const renderproject = () => {
-  for (let i = 0; i < project.length; i++) {
-    const { name } = project[i];
-    addProject(name);
-  }
-};
-
-renderproject();
-projDisplayed();
-rendertask();
 
 cont.onclick = function deleteTask(e) {
   if (e.target.className === 'btn bbd') {
@@ -109,3 +93,40 @@ cont.onclick = function deleteTask(e) {
     }
   }
 };
+
+econt.onclick = function EditTask(e) {
+  if (e.target.className === 'btn btn-default btn-rounded btn-info mb-4') {
+  const element = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+  let ind = index(element);
+  console.log(element);
+  ind = ind + 1
+  editTask(ind);
+  //   if (confirm('delete')) {
+  //     cont.removeChild(element);
+  //     task.splice(ind, 1);
+  //    save();
+  //   }
+  console.log(ind);
+  }
+};
+
+
+
+const renderproject = () => {
+  for (let i = 0; i < project.length; i++) {
+    const { name } = project[i];
+    addProject(name);
+  }
+};
+ const savedProject = fetch();
+
+ if (savedProject.length > 0)
+ {
+  project = savedProject;
+ }
+let projectDisplayed = project[0];
+task = projectDisplayed.task;
+renderproject();
+projDisplayed();
+rendertask();
+
