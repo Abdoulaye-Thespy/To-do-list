@@ -29,16 +29,17 @@ function fetch() {
 }
 
  const savedProject = fetch();
+
  if (savedProject.length > 0)
  {
   project = savedProject;
  }
-let projectDisplayed = project[0].name;
+let projectDisplayed = project[0];
 task = projectDisplayed;
 
 
 const projDisplayed = () => {
-  document.getElementById('displayedProject').innerHTML = projectDisplayed.toUpperCase();
+  document.getElementById('displayedProject').innerHTML = projectDisplayed.name.toUpperCase();
 };
 
 const createButton = document.getElementById('create');
@@ -56,11 +57,13 @@ const rendertask = () => {
 };
 
 pcont.onclick = function openTask(e) {
+  console.log(e.target);
   if (e.target.className === 'proj') {
+    console.log(e.target);
     const element = e.target;
     const ind = index(element);
     task = project[ind].task;
-    projectDisplayed = project[ind].name;
+    projectDisplayed = project[ind];
     rendertask();
     projDisplayed();
   }
@@ -85,20 +88,27 @@ pcreateButton.onclick = function Pcreate() {
   addProject(name);
   save();
 };
+
 const renderproject = () => {
   for (let i = 0; i < project.length; i++) {
     const { name } = project[i];
     addProject(name);
   }
 };
+
 renderproject();
 projDisplayed();
 
 cont.onclick = function deleteTask(e) {
+  console.log(e.target);
   if (e.target.className === 'btn bbd') {
+  const element = e.target.parentElement.parentElement;
+  let ind = index(element);
+  ind = ind + 1
     if (confirm('delete')) {
-      const element = e.target.parentElement.parentElement;
       cont.removeChild(element);
+      task.splice(ind, 1);
+     save();
     }
   }
 };
