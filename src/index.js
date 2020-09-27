@@ -20,18 +20,16 @@ const editButton = document.getElementById('edit');
 const pcreateButton = document.getElementById('pcreate');
 const openmodal = document.getElementById('opencreate');
 
-openmodal.addEventListener('click', reverse);
-
-function index(el) {
+const index =(el) =>{
   return [...el.parentElement.children].indexOf(el) - 1;
 }
 
-function save() {
+const save =() => {
   const JSONReadymyproject = JSON.stringify(project);
   (localStorage.setItem('projects', JSONReadymyproject));
 }
 
-function fetch() {
+const fetch = () => {
   if (localStorage.getItem('projects') === null) {
     localStorage.setItem('projects', JSON.stringify([]));
     return JSON.parse(localStorage.projects);
@@ -56,7 +54,7 @@ const rendertask = () => {
   }
 };
 
-pcont.onclick = function openTask(e) {
+const openTask = (e) => {
   if (e.target.className === 'proj') {
     const element = e.target;
     const ind = index(element);
@@ -68,26 +66,23 @@ pcont.onclick = function openTask(e) {
 };
 
 
-createButton.onclick = function create(e) {
+const create = (e) => {
   const title = document.getElementById('orangeForm-title').value;
   const description = document.getElementById('orangeForm-description').value;
   const dueDate = document.getElementById('orangeForm-date').value;
   const priority = document.getElementById('orangeForm-priority').value;
   const newTask = new Task(title, description, dueDate, priority);
-  console.log(e.target);
-  console.log('razak');
       task.push(newTask);
       addTask(title, description, dueDate, priority);
 
   save();
 };
 
-editButton.onclick = function modifyTask () {
+ const modifyTask = () => {
   const title = document.getElementById('orangeForm-title').value;
   const description = document.getElementById('orangeForm-description').value;
   const dueDate = document.getElementById('orangeForm-date').value;
   const priority = document.getElementById('orangeForm-priority').value;
-  console.log(title, description, dueDate, priority);
   task[indexe].title = title;
   task[indexe].description = description;
   task[indexe].dueDate= dueDate;
@@ -97,7 +92,7 @@ editButton.onclick = function modifyTask () {
 
 }
 
-pcreateButton.onclick = function Pcreate() {
+const Pcreate = () => {
   const name = document.getElementById('defaultForm-name').value;
   const newProject = new Project(name);
   project.push(newProject);
@@ -106,7 +101,7 @@ pcreateButton.onclick = function Pcreate() {
 };
 
 
-cont.onclick = function deleteTask(e) {
+const deleteTask = (e) => {
   if (e.target.className === 'btn bbd') {
   const element = e.target.parentElement.parentElement;
   let ind = index(element);
@@ -119,7 +114,7 @@ cont.onclick = function deleteTask(e) {
   }
 };
 
-econt.onclick = function EditTask(e) {
+const EditTask =(e) => {
   if (e.target.className === 'btn btn-default btn-rounded btn-info mb-4') {
   const element = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
   let ind = index(element);
@@ -127,12 +122,6 @@ econt.onclick = function EditTask(e) {
   ind = ind + 1
   indexe=ind;
   editTask(ind);
-  //   if (confirm('delete')) {
-  //     cont.removeChild(element);
-  //     task.splice(ind, 1);
-  //    save();
-  //   }
-  console.log(ind);
   }
 };
 
@@ -155,4 +144,15 @@ task = projectDisplayed.task;
 renderproject();
 projDisplayed();
 rendertask();
+
+
+
+openmodal.addEventListener('click', reverse);
+createButton.addEventListener('click', create);
+editButton.addEventListener('click', modifyTask);
+pcont.addEventListener('click',openTask);
+pcreateButton.addEventListener('click', Pcreate);
+cont.addEventListener('click', deleteTask);
+econt.addEventListener('click', EditTask);
+
 
