@@ -43,6 +43,30 @@ const projDisplayed = () => {
 };
 
 
+
+const validateFormTask=() => {
+  const title = document.getElementById('orangeForm-title').value;
+  const description = document.getElementById('orangeForm-description').value;
+  const dueDate = document.getElementById('orangeForm-date').value;
+  const priority = document.getElementById('orangeForm-priority').value;
+  if (title === '' || description === ''|| dueDate === ''|| priority ==='') {
+    return false;
+  }
+  return true;
+}
+
+
+
+const validateProject=() => {
+  const name = document.getElementById('defaultForm-name').value;
+  if (name === '') {
+    return false;
+  }
+  return true;
+}
+
+
+
 const rendertask = () => {
   cont.innerHTML = '';
   for (let i = 0; i < task.length; i++) {
@@ -72,10 +96,11 @@ const create = (e) => {
   const dueDate = document.getElementById('orangeForm-date').value;
   const priority = document.getElementById('orangeForm-priority').value;
   const newTask = new Task(title, description, dueDate, priority);
+  if(validateFormTask()) {
       task.push(newTask);
       addTask(title, description, dueDate, priority);
-
-  save();
+      save();
+    }
 };
 
  const modifyTask = () => {
@@ -95,9 +120,12 @@ const create = (e) => {
 const Pcreate = () => {
   const name = document.getElementById('defaultForm-name').value;
   const newProject = new Project(name);
+  if (validateProject()){
   project.push(newProject);
   addProject(name);
   save();
+  }
+
 };
 
 
