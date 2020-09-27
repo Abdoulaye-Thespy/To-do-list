@@ -83,7 +83,18 @@ createButton.onclick = function create(e) {
 };
 
 editButton.onclick = function modifyTask () {
-  console.log('1111');
+  const title = document.getElementById('orangeForm-title').value;
+  const description = document.getElementById('orangeForm-description').value;
+  const dueDate = document.getElementById('orangeForm-date').value;
+  const priority = document.getElementById('orangeForm-priority').value;
+  console.log(title, description, dueDate, priority);
+  task[indexe].title = title;
+  task[indexe].description = description;
+  task[indexe].dueDate= dueDate;
+  task[indexe].priority = priority;
+  save();
+  rendertask();
+
 }
 
 pcreateButton.onclick = function Pcreate() {
