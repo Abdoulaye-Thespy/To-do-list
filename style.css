@@ -92,3 +92,7 @@ footer {
 .task:hover .editBtn {
   display: block;
 }
+#edit{
+  display: none;
+  float: right;
+}
