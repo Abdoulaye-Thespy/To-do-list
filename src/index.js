@@ -1,5 +1,6 @@
 import { Task } from './task';
-import { editTask, test } from './edit';
+import { reverse } from './revEdit';
+import { editTask } from './edit';
 import { Project } from './project';
 import { cont, addTask } from './addtask';
 import { pcont, addProject } from './addproject';
@@ -15,7 +16,11 @@ let indexe=null;
 
 const econt = document.getElementById('content');
 const createButton = document.getElementById('create');
+const editButton = document.getElementById('edit');
 const pcreateButton = document.getElementById('pcreate');
+const openmodal = document.getElementById('opencreate');
+
+openmodal.addEventListener('click', reverse);
 
 function index(el) {
   return [...el.parentElement.children].indexOf(el) - 1;
@@ -71,17 +76,15 @@ createButton.onclick = function create(e) {
   const newTask = new Task(title, description, dueDate, priority);
   console.log(e.target);
   console.log('razak');
-  if (e.target.classList.contains("edit"))
-  {
-    console.log('edit');
-  }
-  else {
       task.push(newTask);
       addTask(title, description, dueDate, priority);
-  }
 
   save();
 };
+
+editButton.onclick = function modifyTask () {
+  console.log('1111');
+}
 
 pcreateButton.onclick = function Pcreate() {
   const name = document.getElementById('defaultForm-name').value;
