@@ -30,6 +30,8 @@
 
 - Clone the git repository.
 - cd into the project
+- run npx webpack to built the main.js file
+- Hit if you run npx webpack --watch, you won't need to run npx webpack each time you make changes on one of the JS files.
 - Open index.html using your prefered browser
 
 ## Author

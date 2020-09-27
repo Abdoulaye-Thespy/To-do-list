@@ -50,6 +50,7 @@ footer {
 .task:hover {
   height: 18rem;
 }
+
 .proj {
   border: 1px solid #a6a6a6;
   padding: 1rem 0 1rem 0;
@@ -83,8 +84,9 @@ footer {
 .task:hover .des {
   display: block;
 }
+
 .editBtn {
-  display:none;
+  display: none;
   float: right;
   margin-right: 10px;
 }
@@ -92,7 +94,8 @@ footer {
 .task:hover .editBtn {
   display: block;
 }
-#edit{
+
+#edit {
   display: none;
   float: right;
 }

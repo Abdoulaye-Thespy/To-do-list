@@ -19,10 +19,9 @@ export const addTask = (title, description, dueDate, priority) => {
   cardBody.appendChild(cardTitle);
 
   const taskDescription = document.createElement('p');
-   taskDescription.className = 'card-text des';
-   taskDescription.appendChild(document.createTextNode(`DESCRIPTION: ${description}`));
-   cardBody.appendChild(taskDescription);
-
+  taskDescription.className = 'card-text des';
+  taskDescription.appendChild(document.createTextNode(`DESCRIPTION: ${description}`));
+  cardBody.appendChild(taskDescription);
 
 
   const taskDue = document.createElement('p');
@@ -37,9 +36,9 @@ export const addTask = (title, description, dueDate, priority) => {
   cardBody.appendChild(numPage);
   const editBtn = document.createElement('div');
   cardBody.appendChild(editBtn);
-  editBtn.className= 'editBtn';
-  editBtn.innerHTML= `        <div class="text-center">
+  editBtn.className = 'editBtn';
+  editBtn.innerHTML = `        <div class="text-center">
           <a href="" class="btn btn-default btn-rounded btn-info mb-4" data-toggle="modal" data-target="#modalRegisterForm">
         EDIT</a>
-        </div>`
-}
+        </div>`;
+};
