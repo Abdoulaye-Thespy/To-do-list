@@ -1,17 +1,17 @@
 import { Task } from './task';
+/*eslint-disable */
 import { reverse, display } from './revEdit';
 import { editTask, hide } from './edit';
 import { Project } from './project';
 import { cont, addTask } from './addtask';
 import { pcont, addProject } from './addproject';
-
 export let task = [];
 export let project = [{
   name: 'DEFAULT',
   task: task = [],
 },
 ];
-
+/* eslint-enable */
 let indexe = null;
 let projectDisplayed = project[0];
 
@@ -128,12 +128,14 @@ const deleteTask = (e) => {
     const element = e.target.parentElement.parentElement;
     let ind = index(element);
     ind += 1;
+    /*eslint-disable */
     if (confirm('delete')) {
       cont.removeChild(element);
       task.splice(ind, 1);
       save();
     }
   }
+  /* eslint-enable */
 };
 
 const EditTask = (e) => {

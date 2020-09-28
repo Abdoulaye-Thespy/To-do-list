@@ -1,5 +1,6 @@
+/*eslint-disable */
 import { task } from './index';
-
+/* eslint-enable */
 export const hide = document.getElementById('create');
 const display = document.getElementById('edit');
 export const editTask = (index) => {
